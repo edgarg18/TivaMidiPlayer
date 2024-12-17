@@ -1,0 +1,117 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.40.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Frank Ramirez, csun, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.40.0.3
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.22
+Assembler:       Armasm.exe V6.22
+Linker/Locator:  ArmLink.exe V6.22
+Library Manager: ArmAr.exe V6.22
+Hex Converter:   FromElf.exe V6.22
+CPU DLL:         SARMCM3.DLL V5.40.0.3
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      lmidk-agdi.dll V???
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+I:\Midi Player\Midi.uvprojx
+Project File Date:  12/01/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.22', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+compiling GPIO.c...
+main.c(74): warning: comparison of integers of different signs: 'uint32_t' (aka 'unsigned int') and 'int' [-Wsign-compare]
+   74 |         if (currentTime - state->lastNoteTime >= (currentNote->deltaTime * 1000)) 
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c(140): warning: unused variable 'testDuty' [-Wunused-variable]
+  140 |   uint16_t testDuty = testPeriodC / 2;
+      |            ^~~~~~~~
+2 warnings generated.
+compiling main.c...
+compiling retarget_io.c...
+compiling SysTick_Delay.c...
+compiling PMOD_BTN_Interrupt.c...
+compiling PWM.c...
+compiling EduBase_LCD.c...
+midi-tune.c(388): warning: missing field 'velocity' initializer [-Wmissing-field-initializers]
+  388 |         {-1, 0, 0}
+      |                  ^
+midi-tune.c(775): warning: missing field 'velocity' initializer [-Wmissing-field-initializers]
+  775 |         {-1, 0, 0}
+      |                  ^
+midi-tune.c(1546): warning: missing field 'velocity' initializer [-Wmissing-field-initializers]
+ 1546 |         {-1, 0, 0}
+      |                  ^
+midi-tune.c(2095): warning: missing field 'velocity' initializer [-Wmissing-field-initializers]
+ 2095 |         {-1, 0, 0}
+      |                  ^
+midi-tune.c(2098): warning: suggest braces around initialization of subobject [-Wmissing-braces]
+ 2098 | static MidiTrack_t tracks_[] = {track1Notes_, track2Notes_, track3Notes_, track4Notes_};
+      |                                 ^~~~~~~~~~~~
+      |                                 {           }
+midi-tune.c(2098): warning: suggest braces around initialization of subobject [-Wmissing-braces]
+ 2098 | static MidiTrack_t tracks_[] = {track1Notes_, track2Notes_, track3Notes_, track4Notes_};
+      |                                               ^~~~~~~~~~~~
+      |                                               {           }
+midi-tune.c(2098): warning: suggest braces around initialization of subobject [-Wmissing-braces]
+ 2098 | static MidiTrack_t tracks_[] = {track1Notes_, track2Notes_, track3Notes_, track4Notes_};
+      |                                                             ^~~~~~~~~~~~
+      |                                                             {           }
+midi-tune.c(2098): warning: suggest braces around initialization of subobject [-Wmissing-braces]
+ 2098 | static MidiTrack_t tracks_[] = {track1Notes_, track2Notes_, track3Notes_, track4Notes_};
+      |                                                                           ^~~~~~~~~~~~
+      |                                                                           {           }
+8 warnings generated.
+compiling midi-tune.c...
+linking...
+Program Size: Code=4822 RO-data=922 RW-data=12636 ZI-data=624  
+".\Objects\Midi.axf" - 0 Error(s), 10 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM::CMSIS@6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS-Compiler.2.1.0.pack
+                ARM::CMSIS-Compiler@2.1.0
+                CMSIS Compiler extensions for Arm Compiler, GCC, Clang, and IAR Compiler
+   * Component: CORE Version: 1.1.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.TM4C_DFP.1.1.0.pack
+                Keil::TM4C_DFP@1.1.0
+                Texas Instruments Tiva C Series Device Support and Examples
+   * Component: Startup Version: 1.0.1
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
+  C:/Keil_v5/ARM/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+  C:/Keil_v5/ARM/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS-Compiler:CORE@1.1.0
+      Source file:   source/armcc/retarget_io.c
+
+   * Component: ARM::CMSIS:CORE@6.1.0
+
+   * Component: Keil::Device:Startup@1.0.1
+      Include file:  Device/Include/TM4C123/TM4C123.h
+      Source file:   Device/Source/system_TM4C123.c
+      Source file:   Device/Source/ARM/startup_TM4C123.s
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
