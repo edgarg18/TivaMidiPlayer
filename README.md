@@ -45,7 +45,7 @@ The MIDI player successfully performed track playback with features such as:
 •	LCD Status Display: Displayed the current playback status.
 •	LED Output: Provided a visual indicator during playback.
 
-MIDI Parsing and Playback:
+## MIDI Parsing and Playback:
 •	MIDI files were parsed using the [MidiFile](https://github.com/craigsapp/midifile) tool, converting .mid files into a .c format for the Tiva microcontroller.
 •	The MIDI tracks were split into a maximum of four channels and assigned to the four available PWM outputs.
 
@@ -57,7 +57,7 @@ MIDI Parsing and Playback:
 
 [Yoshi's Island Intro](https://drive.google.com/file/d/1EeKvgMTFukUXmkjqyIFN_wXHTDJ6R_ms/view?usp=drive_link)
 
-Limitations:
+## Limitations:
 •	The system was configured for a fixed tempo of 120 BPM, restricting playback accuracy for faster tracks such as Flight of the Bumblebee.
 •	Certain sound effects, like tremolos and short percussion tones, were not emulated correctly due to hardware constraints and timing complexities.
 •	Breadboard connections introduced noise into the audio signal, resulting in inconsistent pitch. Various capacitor values were tested on the amplifier to optimize gain and reduce noise.
@@ -65,10 +65,9 @@ Limitations:
 
 ## Conclusion
 
-Limitations:
-•	The system was configured for a fixed tempo of 120 BPM, restricting playback accuracy for faster tracks such as Flight of the Bumblebee.
-•	Certain sound effects, like tremolos and short percussion tones, were not emulated correctly due to hardware constraints and timing complexities.
-•	Breadboard connections introduced noise into the audio signal, resulting in inconsistent pitch. Various capacitor values were tested on the amplifier to optimize gain and reduce noise.
+ The final product successfully played tracks with up to four instrument channels at a fixed tempo of 120 BPM. While limitations such as handling variable tempos, additional instruments, the core functionality performed as intended. Hardware noise introduced pitch inconsistencies, which were mitigated through amplifier adjustments.
+This project applied key embedded systems concepts like GPIO configuration, timers, interrupts, and PWM generation, offering valuable insights into microcontroller-hardware integration. It sets a solid foundation for future designs, with potential for enhancements like variable tempo playback and improved sound emulation in more advanced projects.
+
 
 
 ## Works Cited
