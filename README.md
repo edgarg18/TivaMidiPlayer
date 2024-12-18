@@ -1,12 +1,13 @@
 # Tiva Midi Player - ECE 425 Final Project
 ![Board](Images/Device)
 ## Introduction
-When first introduced to the Tiva and presented with its capabilities for PWM programming, I was allured by the idea of designing a music box. Early labs that showcased musical notes being played through a tiny buzzer reminded me of early 16-bit gaming OSTs and how we could potentially design something to playback some of these nostalgic tracks. The project was created with the intent of designing a small player that would take in a MIDI file and output the entire track.
+Exploring the Tiva TM4C123GH6PM microcontroller and its capabilities for PWM programming sparked the idea of creating a music box. Early labs that demonstrated musical notes played through a small buzzer evoked nostalgia, reminiscent of the soundtracks from 16-bit gaming eras. This inspired the development of a compact MIDI player capable of interpreting and playing back tracks directly from MIDI files. The primary objective was to design a self-contained device that could process MIDI input and generate audible music using PWM signals.
 
 ## Background and Methodology
-This project utilizes many embedded system concepts learned throughout the semester. We initialized some pins as GPIOs for button inputs, LCD display output, as well as adding interrupts and delays with SysTick. Since many MIDI tracks have layered instruments, we used 4 PWMs to emulate multiple instrument sounds. The General Purpose Timer Module is also utilized throughout for configuring the PWM periods and duty cycles, as well as the SysTick Timer. To convert the MIDI files into something readable by the Tiva board, we used the [MidiFile](https://github.com/craigsapp/midifile) project to change the .mid file into a .c output for it to be parsed by the microcontroller.
+This project integrates a wide array of embedded system concepts learned throughout the semester. GPIOs were configured for button inputs and LCD display outputs, while interrupts and SysTick timers managed timing and controls. To simulate layered MIDI tracks, four PWM modules were used to emulate multiple instruments simultaneously.
+The General-Purpose Timer Module played a critical role in configuring PWM periods and duty cycles. Additionally, the SysTick Timer facilitated precise delays required for playback timing. MIDI files were converted into a readable .c format using  [MidiFile](https://github.com/craigsapp/midifile) enabling the microcontroller to parse and process MIDI tracks.
 
-Our contraption involved using PMOD buttons for controls and outputting the 4 PWM tracks to route through a Quad Tri-State Buffer, which were then routed to a potentiometer (volume knob) and sent to an Op-Amp, and then to a speaker as the final output. An LCD display embedded within the EduBase board was used to display the status of playing tracks.
+The setup included PMOD buttons for user input, a Quad Tri-State Buffer for routing the four PWM signals, a potentiometer for volume control, an audio amplifier for signal enhancement, and a speaker for output. An LCD display, integrated within the EduBase board, provided real-time status updates of the playback
 
 ## Block Diagram
 ![Block_Diagram](Images/Block_Diagram.jpg)
@@ -38,7 +39,16 @@ Our contraption involved using PMOD buttons for controls and outputting the 4 PW
 
 ## Analysis and Results
 
-The MIDI player was capable of track playback on its own once configured. It included volume control, a Play/Stop button, an LCD status display, and onboard LED output during playback. MIDI files were parsed using the MidiFile code, then split into a maximum of four tracks, which were played across the four initialized PWM modules.
+The MIDI player successfully performed track playback with features such as:
+•	Volume Control: Managed via a potentiometer.
+•	Play/Stop Button: Controlled playback initiation and halting.
+•	LCD Status Display: Displayed the current playback status.
+•	LED Output: Provided a visual indicator during playback.
+
+MIDI Parsing and Playback:
+•	MIDI files were parsed using the [MidiFile](https://github.com/craigsapp/midifile) tool, converting .mid files into a .c format for the Tiva microcontroller.
+•	The MIDI tracks were split into a maximum of four channels and assigned to the four available PWM outputs.
+
 
 ### Examples
 [Super Mario Intro](https://drive.google.com/file/d/1Ec3wyDyLBsa6OF05u46dPFqC-WILQXnV/view?usp=drive_link)
@@ -47,15 +57,19 @@ The MIDI player was capable of track playback on its own once configured. It inc
 
 [Yoshi's Island Intro](https://drive.google.com/file/d/1EeKvgMTFukUXmkjqyIFN_wXHTDJ6R_ms/view?usp=drive_link)
 
-There were limitations in terms of configuration. At its conclusion, it was set to run tracks at a consistent tempo of 120 BPM. As a result, faster tracks (e.g., Flight of the Bumblebee) did not play correctly. Implementing variable tempo playback would have been a significant undertaking, requiring a longer timeline. Certain tones, such as tremolo noises and short percussion sounds within specific tracks, did not emulate correctly, likely due to the varying pitch and short duration of these sounds. Incorporating these would have also extended the project timeline. Additionally, the breadboard used to house some of the hardware introduced noise into the circuit, causing inconsistent pitch. Different capacitor values were tested on the amplifier to achieve the desired gain and filter out the noise.
+Limitations:
+•	The system was configured for a fixed tempo of 120 BPM, restricting playback accuracy for faster tracks such as Flight of the Bumblebee.
+•	Certain sound effects, like tremolos and short percussion tones, were not emulated correctly due to hardware constraints and timing complexities.
+•	Breadboard connections introduced noise into the audio signal, resulting in inconsistent pitch. Various capacitor values were tested on the amplifier to optimize gain and reduce noise.
+
 
 ## Conclusion
 
-The desired design goal was achieved, albeit with some limitations. MIDI tracks with a maximum of four instruments, running at the standard tempo of 120 BPM or below, played as expected. Tracks with more than four instruments, varying pitches, or short percussive sounds were not emulated correctly.
+Limitations:
+•	The system was configured for a fixed tempo of 120 BPM, restricting playback accuracy for faster tracks such as Flight of the Bumblebee.
+•	Certain sound effects, like tremolos and short percussion tones, were not emulated correctly due to hardware constraints and timing complexities.
+•	Breadboard connections introduced noise into the audio signal, resulting in inconsistent pitch. Various capacitor values were tested on the amplifier to optimize gain and reduce noise.
 
-Throughout the project, multiple embedded systems concepts were used to achieve the desired effects in the final design. From simple GPIO drivers, to dense looping of PWM channels, my understanding of the C language grew immensely. However, the hardware concepts were the main takeaway, as registers, timers, input/output ports, etc., are seemingly universal across all microcontrollers.
-
-This project has become the catalyst for many upcoming microcontroller projects. Stay tuned!
 
 ## Works Cited
 MidiFile: https://github.com/craigsapp/midifile
